@@ -11,21 +11,21 @@ package ricevimentoxml;
  */
 public class Prof {
     
-    private int ID;
+    private String ID;
     private String nome,giorno,note,ora;
     
     
     public Prof(){
         
     }
-    public Prof(int ID, String ora, String nome, String giorno) {
+    public Prof(String ID, String ora, String nome, String giorno) {
         this.ID = ID;
         this.ora = ora;
         this.nome = nome;
         this.giorno = giorno;
     }
 
-    public Prof(int ID, String ora, String nome, String giorno, String note) {
+    public Prof(String ID, String ora, String nome, String giorno, String note) {
         this.ID = ID;
         this.ora = ora;
         this.nome = nome;
@@ -37,11 +37,11 @@ public class Prof {
         return s;
     }
     
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 

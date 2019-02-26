@@ -57,18 +57,25 @@ public class Parser {
 
         // cerco il primo elemento nel primo tr
         //Element elementParent = (Element) el.getParentNode();
-        String IDstringa = el.getChildNodes().item(0).getTextContent(); //getTextValue(elementParent, "td", 0);
-        String nome = el.getChildNodes().item(1).getTextContent(); //getTextValue(elementParent, "td", 1);
-        String giorno = el.getChildNodes().item(2).getTextContent(); //getTextValue(elementParent, "td", 2);
-        String ora = el.getChildNodes().item(3).getTextContent(); //getTextValue(elementParent, "td", 3);
-        String commento = el.getChildNodes().item(4).getTextContent(); //getTextValue(elementParent, "td", 3);
-
+        ArrayList a=new ArrayList();
+        for(int i=0;i<el.getChildNodes().getLength();i++){
+            String bambino = el.getChildNodes().item(i).getTextContent(); //getTextValue(elementParent, "td", 0);
+            if(!bambino.equals(""))
+                a.add(bambino);
+        }
+        String ID=(String)a.get(0);
+        String nome=(String)a.get(1);  
+        String giorno="";
+        String ora ="";
+        String commento="";
+        //creo l'oggetto del prof 
+        if(a.size()>2)
+            giorno=(String)a.get(2);
+        else if(a.size()>3)
+            ora= (String)a.get(3);
+        else if(a.size()>4)
+            commento = (String)a.get(4);
         
-        //sistemo i dati del professore
-        int ID=Integer.parseInt(IDstringa);
-        
-
-        //creo l'oggetto del prof
         p = new Prof(ID,ora,nome,giorno,commento);
         return p;
     }
