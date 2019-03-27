@@ -164,10 +164,9 @@ public class from extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-        jTextArea1.setText("");
-        Iterator iterator = albo.iterator();
-        while (iterator.hasNext()) {
-            jTextArea1.append(iterator.next().toString()+"\n");
+        jTextArea1.setText("");        
+        for (Prof i:albo) {
+            jTextArea1.append(i.toString()+"\n");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -175,15 +174,11 @@ public class from extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextArea1.setText("");
         String cognome=jTextField1.getText();
-        Iterator iterator = albo.iterator();
-        int i=0;
-        while (iterator.hasNext()) {
-            Prof temp= albo.get(i);
-            if(temp.getNome().toLowerCase().equals(cognome.toLowerCase())){
-                jTextArea1.append(iterator.next().toString()+"\n");
+        for (Prof i:albo) {
+            if(i.getNome().toLowerCase().equals(cognome.toLowerCase())){
+                jTextArea1.append(i.toString()+"\n");
             }
-            i++;
-            
+                      
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -191,14 +186,12 @@ public class from extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextArea1.setText("");
         String giorno=jTextField2.getText();
-        Iterator iterator = albo.iterator();
-        int i=0;
-        while (iterator.hasNext()) {
-            Prof temp= albo.get(i);
-            if(temp.getGiorno().toLowerCase().equals(giorno.toLowerCase())){
-                jTextArea1.append(iterator.next().toString()+"\n");
+        
+        for (Prof i:albo) {           
+            if(i.getGiorno().toLowerCase().equals(giorno.toLowerCase())){
+                jTextArea1.append(i.toString()+"\n");
             }
-            i++;
+            
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
